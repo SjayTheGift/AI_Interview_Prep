@@ -20,6 +20,9 @@ const InterviewCard = ({
         feedback?.createdAt || createdAt || Date.now()
       ).format("MMM D, YYYY");
 
+
+      console.log(interviewId);
+
     const badgeColor =
       {
         Behavioral: "bg-light-400",
