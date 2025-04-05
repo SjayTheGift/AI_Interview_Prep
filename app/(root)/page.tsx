@@ -1,11 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
-import { dummyInterviews } from "@/constants";
 import InterviewCard from "@/components/InterviewCard";
 import { getInterviewsByUserId, getLatestInterviews } from "@/lib/actions/general.action";
 import { getCurrentUser } from "@/lib/actions/auth.action";
+import LoadingButton from "@/components/LoadingButton";
 
 const page = async () => {
 
@@ -17,6 +16,7 @@ const page = async () => {
 
   const hasPastInterviews = userInterviews?.length! > 0 ;
   const hasUpcomingInterviews = latestInterviews?.length! > 0;
+
   return (
     <>
       <section className='card-cta'>
@@ -26,9 +26,13 @@ const page = async () => {
             Practice real interview questions & get instant feedback
           </p>
 
-          <Button asChild className="btn-primary max-sm:w-full">
+          <LoadingButton>
             <Link href="/interview">Start an Interview</Link>
-          </Button>
+          </LoadingButton>
+
+          {/* <LoadingButton link="/interview" text="Start an Interview"/> */}
+              
+
         </div>
         <Image
           src="/robot.png"
