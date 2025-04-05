@@ -79,7 +79,9 @@ const AuthForm = ({ type }: { type: FormType }) => {
             console.log(error);
             toast.error(`There was an error: ${error}`);
         } finally {
-            setLoading(false); // Stop loading
+            setTimeout(() => {
+              setLoading(false);
+          }, 3000); // Adjust duration as needed
         }
     }
 
@@ -118,7 +120,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
                         />
                         
                         <Button type="submit" className="btn w-full" disabled={loading}>
-                            {loading ? <Loader2 />  : (isSignIn ? 'Sign in' : "Create an Account")}
+                            {loading ? <Loader2  className="animate-spin" />  : (isSignIn ? 'Sign in' : "Create an Account")}
                         </Button>
                     </form>
                 </Form>
