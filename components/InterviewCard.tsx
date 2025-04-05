@@ -5,6 +5,7 @@ import Image from 'next/image';
 import DisplayTechIcons from './DisplayTechIcons';
 import { Button } from './ui/button';
 import Link from 'next/link';
+import LoadingButton from "@/components/LoadingButton";
 
 const InterviewCard = ({
     interviewId,
@@ -84,17 +85,17 @@ const InterviewCard = ({
         <div className="flex flex-row justify-between">
             <DisplayTechIcons techStack={techstack} />
 
-            <Button className="btn-primary">
-            <Link
-                href={
-                feedback
-                    ? `/interview/${interviewId}/feedback`
-                    : `/interview/${interviewId}`
-                }
-            >
-                {feedback ? "Check Feedback" : "View Interview"}
-            </Link>
-            </Button>
+            <LoadingButton>
+                <Link
+                    href={
+                    feedback
+                        ? `/interview/${interviewId}/feedback`
+                        : `/interview/${interviewId}`
+                    }
+                >
+                    {feedback ? "Check Feedback" : "View Interview"}
+                </Link>
+            </LoadingButton>
         </div>
         </div>
     </div>
